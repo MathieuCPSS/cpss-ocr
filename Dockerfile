@@ -16,10 +16,8 @@ WORKDIR /app
 
 # Copier et installer les dépendances Python
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
-
-# Pré-télécharger les modèles PaddleOCR au build (évite le délai au premier appel)
-RUN python -c "from paddleocr import PaddleOCR; PaddleOCR(use_angle_cls=True, lang='en', show_log=False)"
+RUN pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir -r requirements.txt
 
 # Copier le code
 COPY app.py .
