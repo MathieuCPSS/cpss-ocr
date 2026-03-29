@@ -5,4 +5,5 @@ paddlepaddle==3.0.0
 Pillow==10.3.0
 numpy==1.26.4
 setuptools==69.5.1
+gunicorn==21.2.0
 

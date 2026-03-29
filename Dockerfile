@@ -25,5 +25,5 @@ COPY app.py .
 # Port exposé
 EXPOSE 8080
 
-# Démarrer le serveur
-CMD ["python", "app.py"]
+# Démarrer avec gunicorn sur le port Railway
+CMD gunicorn app:app --bind 0.0.0.0:$PORT --timeout 120 --workers 1
